@@ -20,24 +20,27 @@ namespace FlightSimulator.Views
     /// <summary>
     /// Interaction logic for Settings.xaml
     /// </summary>
-    public partial class Settings : Window
+    public partial class Settings : UserControl
     {
        
         private SettingsWindowViewModel vm;
 
-        public SettingsWindowViewModel DataContext { get; private set; }
+        
 
         public Settings()
         {
 
             InitializeComponent();
             vm = new SettingsWindowViewModel(new ApplicationSettingsModel());
-            DataContext = vm;
+            this.DataContext = vm;
+           
         }
+
 
         private void BtnOK_Click(object sender, RoutedEventArgs e)
         {
-
+            Console.WriteLine("h");
+           
         }
     }
 }

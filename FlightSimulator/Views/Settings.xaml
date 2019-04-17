@@ -28,9 +28,10 @@
         <TextBlock Grid.Row="4" Padding="3" Margin="6,2,168,14" RenderTransformOrigin="0.544,2.477" Grid.ColumnSpan="2">Flight Command Port:</TextBlock>
         <TextBox x:Name="txtCols" Grid.Row="1" Grid.Column="1" Padding="3"
         Margin="3,6,24,0" Grid.RowSpan="2"></TextBox>
-        <Button x:Name="btnOK" Grid.Row="6" HorizontalAlignment="Center" Command="{Binding _clickCommand}" Margin="59,26,56,-41" Padding="5" Width="54" RenderTransformOrigin="2.451,0.718" Grid.Column="1" Height="32" VerticalAlignment="Top" Click="BtnOK_Click">OK</Button>
-        <Button x:Name="btnCancel" Grid.Row="6" HorizontalAlignment="Right" Command="{Binding _cancelCommand}"
-Grid.ColumnSpan="1" Click="btnStart_Click" Margin="0,25.667,26.667,-41.667" Padding="5" Width="52" RenderTransformOrigin="1.527,1.609" Height="32" VerticalAlignment="Top">Cancel</Button>
+        <Button x:Name="btnOK" Grid.Row="6" HorizontalAlignment="Center" Command="{Binding ClickCommand}" Margin="59,26,56,-41" Padding="5" Width="54" RenderTransformOrigin="2.451,0.718" Grid.Column="1" Height="32" VerticalAlignment="Top">OK</Button>
+        <Button x:Name="btnCancel" Grid.Row="6" HorizontalAlignment="Right" Command="{Binding CancelCommand}"
+                Grid.ColumnSpan="1" Margin="0,25.667,26.667,-41.667" Padding="5" Width="52" RenderTransformOrigin="1.527,1.609" Height="32" VerticalAlignment="Top">Cancel</Button>
+       
     </Grid>
 
 </UserControl>

@@ -23,14 +23,15 @@ namespace FlightSimulator
     {
         public MainWindow()
         {
-            Console.WriteLine("5\n\n");
+          /* Console.WriteLine("5\n\n");
             ITelnetClient tclient = new MyTelnetClient();
             ISimulatorModel sm = new SimulatorModel(tclient);
             sm.connectAsClient("127.0.0.1", 5402);
             sm.startClient();
-            Console.WriteLine("5\n\n");
-            // ConsoleManager.Show();
+            Console.WriteLine("5\n\n");*/
+        
             InitializeComponent();
+
            
 
 

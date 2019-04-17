@@ -17,6 +17,7 @@ namespace FlightSimulator.ViewModels.Windows
         public SettingsWindowViewModel(ISettingsModel model)
         {
             this.model = model;
+            Console.WriteLine("B");
         }
 
         public string FlightServerIP
@@ -68,11 +69,18 @@ namespace FlightSimulator.ViewModels.Windows
         {
             get
             {
-                return _clickCommand ?? (_clickCommand = new CommandHandler(() => OnClick()));
+                Console.WriteLine("A");
+                if(_clickCommand==null)
+                {
+                    _clickCommand = new CommandHandler(() => OnClick());
+                }
+                return _clickCommand;
+               // return _clickCommand ?? (_clickCommand = new CommandHandler(() => OnClick()));
             }
         }
         private void OnClick()
         {
+            Console.WriteLine("888");
             model.SaveSettings();
         }
         #endregion
@@ -83,13 +91,18 @@ namespace FlightSimulator.ViewModels.Windows
         {
             get
             {
+                Console.WriteLine("D");
                 return _cancelCommand ?? (_cancelCommand = new CommandHandler(() => OnCancel()));
             }
         }
         private void OnCancel()
         {
+            Console.WriteLine("FE");
             model.ReloadSettings();
         }
+
+        public Action CloseAction { get; set; }
+
         #endregion
         #endregion
     }
