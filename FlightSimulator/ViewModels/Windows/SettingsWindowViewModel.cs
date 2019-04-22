@@ -17,7 +17,7 @@ namespace FlightSimulator.ViewModels.Windows
         public SettingsWindowViewModel(ISettingsModel model)
         {
             this.model = model;
-            Console.WriteLine("B");
+            
         }
 
         public string FlightServerIP
@@ -69,7 +69,7 @@ namespace FlightSimulator.ViewModels.Windows
         {
             get
             {
-                Console.WriteLine("A");
+               
                 if(_clickCommand==null)
                 {
                     _clickCommand = new CommandHandler(() => OnClick());
