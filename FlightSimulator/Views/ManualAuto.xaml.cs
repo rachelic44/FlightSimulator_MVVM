@@ -1,6 +1,4 @@
-﻿using FlightSimulator.Model;
-using FlightSimulator.ViewModels.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,22 +10,24 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for MySettings.xaml
+    /// Interaction logic for ManuAuto.xaml
     /// </summary>
-    public partial class Settings : Window
+    public partial class ManuAuto : UserControl
     {
-        private SettingsWindowViewModel vm;
-
-        public Settings()
+        public ManuAuto()
         {
             InitializeComponent();
-            vm = new SettingsWindowViewModel(new ApplicationSettingsModel());
-            DataContext = vm;
+        }
+
+        private void JoysticNew_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

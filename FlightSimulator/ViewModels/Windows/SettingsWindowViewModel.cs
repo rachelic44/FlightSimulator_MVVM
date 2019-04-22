@@ -103,6 +103,25 @@ namespace FlightSimulator.ViewModels.Windows
 
         public Action CloseAction { get; set; }
 
+        private ICommand _cancelCommando;
+        public ICommand CancelCommando
+        {
+            get
+            {
+                if (_cancelCommando == null)
+                {
+                    _cancelCommando = new CommandHandlerWArg(
+                          x =>
+                          {
+                              Console.WriteLine("5553");
+                              x?.Close();
+                          });
+                }
+                
+                return _cancelCommando;
+            }
+        }
+
         #endregion
         #endregion
     }
