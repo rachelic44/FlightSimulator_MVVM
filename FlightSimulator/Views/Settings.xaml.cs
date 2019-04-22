@@ -18,7 +18,7 @@ namespace FlightSimulator.Views
 {
     /// <summary>
     /// Interaction logic for MySettings.xaml
-    /// </summary>
+    /// </summary> .
     public partial class Settings : Window
     {
         private SettingsWindowViewModel vm;
