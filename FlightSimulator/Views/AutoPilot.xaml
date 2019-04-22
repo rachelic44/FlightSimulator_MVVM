@@ -4,25 +4,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:FlightSimulator.Views"
-             mc:Ignorable="d" 
-             d:DesignHeight="450" Width="514">
+             mc:Ignorable="d"  Background="White" Height="353.333" Width="438.667">
+    <Grid>
+        <ScrollViewer Margin="0,0,0.667,10">
+            <StackPanel>
+                <TextBox x:Name="AutoPilotText" Height="300"  Text="{Binding AutoPilotData}" />
+                <WrapPanel HorizontalAlignment="Center">
+                    <Button Content="Clear"  Width="35" Margin="10" Background="WhiteSmoke" Command="{Binding ClearCommand}"/>
+                    <Button Content="OK" Margin="10" Command="{Binding OkCommand}" Width="35" Background="WhiteSmoke"/>
 
-    <Grid Height="500" Width="500" VerticalAlignment="Bottom" Background="GhostWhite">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Button x:Name="OK" Grid.Row="3" HorizontalAlignment="Center" Command="{Binding ClickCommand}" Margin="37,90.667,36.333,0" Padding="5" Width="52" RenderTransformOrigin="2.451,0.718" Grid.Column="2" Height="32" VerticalAlignment="Top">OK</Button>
-        <Button x:Name="clear" Grid.Row="3" HorizontalAlignment="Right" Command="{Binding ClearCommand}"
-                Grid.ColumnSpan="1" Margin="0,91.667,22,0" Padding="5" Width="52" RenderTransformOrigin="1.527,1.609" Height="32" VerticalAlignment="Top" Grid.Column="1">Clear</Button>
-
+                </WrapPanel>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>
