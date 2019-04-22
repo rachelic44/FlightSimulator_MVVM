@@ -31,13 +31,17 @@ namespace FlightSimulator
               sm.startClient();
               Console.WriteLine("5\n\n");*/
 
-            Settings s = new Settings();
+            //Settings s = new Settings();
            
             InitializeComponent();
-            Show();
-            s.ShowDialog();
+           // Show();
+          //  s.ShowDialog();
             
 
+
+        }
+        private void TrackFilght_Loaded(object sender, RoutedEventArgs e)
+        {
 
         }
 

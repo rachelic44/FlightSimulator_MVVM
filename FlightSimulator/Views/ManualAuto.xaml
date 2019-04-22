@@ -11,14 +11,18 @@
         <TabControl HorizontalAlignment="Left" Height="437" VerticalAlignment="Top" Width="804" Margin="0,0,-4,0">
             <TabItem Header="Manual" Height="22" VerticalAlignment="Bottom">
                 <Grid Margin="0,0,0,9.333">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="305*"/>
+                        <RowDefinition Height="93*"/>
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="67*"/>
                         <ColumnDefinition Width="8*"/>
                         <ColumnDefinition Width="23*"/>
                         <ColumnDefinition Width="700*"/>
                     </Grid.ColumnDefinitions>
-                    <Grid Background="#FFE5E5E5" Grid.ColumnSpan="4" Margin="4,17,296,-16.667"/>
-                    <local:JoysticNew Margin="0,5,298,-24" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="498"  />
+                    <Grid Background="#FFE5E5E5" Grid.ColumnSpan="4" Margin="-90,10,298,-10" Grid.RowSpan="2"/>
+                    <local:JoysticNew Margin="0,-312,298,0" Grid.ColumnSpan="4" HorizontalAlignment="Right" Width="469" Grid.RowSpan="2"  />
                 </Grid>
 
             </TabItem>

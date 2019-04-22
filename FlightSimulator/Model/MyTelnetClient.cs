@@ -21,7 +21,11 @@ namespace FlightSimulator.Model
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
             TcpClient client = new TcpClient();
             this.client = client;
-            client.Connect(ep);            Console.WriteLine("connected");            this.stream = this.client.GetStream() ;            this.writer= new BinaryWriter(this.stream);
+            client.Connect(ep);
+            Console.WriteLine("connected");
+            this.stream = this.client.GetStream() ;
+            this.writer= new BinaryWriter(this.stream);
+
         }
         public void write(string command)
         {
@@ -44,5 +48,7 @@ namespace FlightSimulator.Model
         public void disconnect()
         {
             client.Close();
-        }    }
+        }
+    }
+
 }

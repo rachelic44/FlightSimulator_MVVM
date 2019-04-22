@@ -63,10 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\FlightBoardModel.cs" />
     <Compile Include="Views\AutoPilot.xaml.cs">
       <DependentUpon>AutoPilot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DialogCloser.cs" />
     <Compile Include="Views\JoystickNew.xaml.cs">
       <DependentUpon>JoystickNew.xaml</DependentUpon>
     </Compile>
