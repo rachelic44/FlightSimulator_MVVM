@@ -22,7 +22,7 @@ namespace FlightSimulator.Model
             }
         }
 
-        // property Lon
+        // property Lon .
         public double Lon
         {
             get { return this.lon; }
