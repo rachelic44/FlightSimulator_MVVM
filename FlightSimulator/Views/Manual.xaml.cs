@@ -18,9 +18,9 @@ namespace FlightSimulator.Views
     /// <summary>
     /// Interaction logic for JoysticNew.xaml
     /// </summary>
-    public partial class JoysticNew : UserControl
+    public partial class Manual : UserControl
     {
-        public JoysticNew()
+        public Manual()
         {
             InitializeComponent();
         }

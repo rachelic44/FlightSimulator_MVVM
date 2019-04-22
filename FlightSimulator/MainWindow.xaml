@@ -30,7 +30,7 @@
             <Views:FlightBoard Grid.Column="0" Loaded="TrackFilght_Loaded"/>
             <TabControl Grid.Column="1" Grid.ColumnSpan="2">
                 <TabItem Header="Manual">
-                    <Views:JoysticNew/>
+                    <Views:Manual/>
                 </TabItem>
                 <TabItem Header="Auto Pilot">
                     <Views:AutoPilot/>

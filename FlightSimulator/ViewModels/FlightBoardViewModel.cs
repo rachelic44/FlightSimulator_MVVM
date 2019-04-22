@@ -3,6 +3,7 @@ using FlightSimulator.Model.Interface;
 using FlightSimulator.Views;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,18 +18,30 @@ namespace FlightSimulator.ViewModels
         public FlightBoardViewModel(FlightBoardModel model)
         {
             this.flightBoardModel = model;
-            
+            model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
+            {
+                // NotifyPropertyChanged("VM_" + e.PropertyName); };// - kind of reaction, dont have to. cat do other stuff here
+                Console.WriteLine("in pr");
+            };
         }
 
         public double Lon
         {
             get;
+            set;
         }
 
         public double Lat
         {
             get;
+            set;
         }
+
+    
+
+
+
+
 
 
         private ICommand openSettings;
