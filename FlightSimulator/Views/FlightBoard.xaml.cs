@@ -49,8 +49,7 @@ namespace FlightSimulator.Views
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon") )
             {
                 //m take the values from the refernce we hold to the vm-("give something" )  if "LON" the line. or both anyway. and write it
-
-                Console.WriteLine("change");
+                //add - only if they both changed.
                 Point p1 = new Point((float)vm.Lat, (float)vm.Lon); 
                 planeLocations.AppendAsync(Dispatcher, p1);
             }

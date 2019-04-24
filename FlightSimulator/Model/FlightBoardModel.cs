@@ -23,6 +23,8 @@ namespace FlightSimulator.Model
             Console.WriteLine("{0},{1},{2} ip stuff", ip, portServer, portClient);
             Server server = new Server(ip, portServer,this);
             server.Start();
+            /* tell the connection class to create a connection , will happen only when the simulator is opened */ 
+            Connection.Instance.createClient(ip,portClient);
             Console.WriteLine("after thread");
             
         }

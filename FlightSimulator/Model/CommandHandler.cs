@@ -26,7 +26,7 @@ namespace FlightSimulator.Model
 
         public void Execute(object parameter)
         {
-            Console.WriteLine("P");
+            
             _action();
         }
     }

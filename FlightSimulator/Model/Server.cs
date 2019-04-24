@@ -28,7 +28,7 @@ namespace FlightSimulator.Model
 
         public void Start()
         {
-            //this happens in other thread 
+           
 
 
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
@@ -44,10 +44,11 @@ namespace FlightSimulator.Model
                 TcpClient client = listener.AcceptTcpClient();
                 //todo : here to change the boolen that will raise the function of the model (or call the func).maybe the boolean needed to somwhere else 
                 Console.WriteLine("Got new connection");
+
+                /* change the boolean to true, to let know that the simulator is now opened, and can be connected to as a server */ 
+                Connection.Instance.SimulatorOpened = true;
+
                 BinaryReader reader = new BinaryReader(client.GetStream());
-                string res ="";
-                string[] data;
-                string buffer;
                 var format = new NumberFormatInfo();
                 format.NegativeSign = "-";
                 format.NumberDecimalSeparator = ".";
@@ -80,9 +81,9 @@ namespace FlightSimulator.Model
                         string input = "";
                         char s;
                         while ((s = reader.ReadChar()) != '\n') input += s;
-                        Console.WriteLine("the values: {0}", input);
+                       // Console.WriteLine("the values: {0}", input);
                         string[] ddata = input.Split(',');
-                        Console.WriteLine("the one:{0}", ddata[0]);
+                      //  Console.WriteLine("the one:{0}", ddata[0]);
                         flightBoardModel.Lon = double.Parse(ddata[0]);
                         flightBoardModel.Lat = double.Parse(ddata[1]);
                         string[] result = { ddata[0], ddata[1] };

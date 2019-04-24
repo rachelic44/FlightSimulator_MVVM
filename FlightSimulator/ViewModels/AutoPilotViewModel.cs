@@ -15,17 +15,18 @@ namespace FlightSimulator.ViewModels
         public AutoPilotViewModel (AutoPilotModel model)
         {
             this.model = model;
+            this.autoPilotData = "";
         }
 
 
         public string AutoPilotData
         {
-            get { return this.autoPilotData;
-            }
+            get { return this.autoPilotData; }
+            
             set
             {
                 this.autoPilotData = value;
-                NotifyPropertyChanged("AutoPilotData");
+             //   NotifyPropertyChanged("AutoPilotData");
             }
         }
 
@@ -43,7 +44,8 @@ namespace FlightSimulator.ViewModels
         private void OnClear()
         {
             Console.WriteLine("yayyy");
-            this.AutoPilotData = String.Empty;
+            this.AutoPilotData = "";
+            NotifyPropertyChanged("AutoPilotData"); //in set../
         }
         #endregion
 
@@ -61,6 +63,15 @@ namespace FlightSimulator.ViewModels
         {
             Console.WriteLine("dfsdfsfdsf");
             // model.ReloadSettings();
+            if (AutoPilotData != "")
+            {
+                Console.WriteLine("send it");
+                string[] result = AutoPilotData.Split('\n');
+                foreach(string line in result) {
+                    Connection.Instance.TelnetClient.write(line+"\r\n");
+                }
+                this.AutoPilotData = ""; //and not set..
+            }
         }
         #endregion
         #endregion

@@ -16,14 +16,21 @@ namespace FlightSimulator
 
         }
 
-        private MyTelnetClient telnetClient;
-        private bool gotClient = false;
-        public bool GotClient
-        {
-            get { return this.gotClient;  }
-            set { this.gotClient = value; }
-        }
+        private ITelnetClient telnetClient;
+        private bool simulatorOpened = false;
         private bool stopReading = false;
+
+        public ITelnetClient TelnetClient
+        {
+            get { return this.telnetClient; }
+            set { this.telnetClient = value; }
+        }
+        public bool SimulatorOpened
+        {
+            get { return this.simulatorOpened;  }
+            set { this.simulatorOpened = value; }
+        }
+       
         public bool StopReading
         {
             get { return this.stopReading; }
@@ -44,15 +51,18 @@ namespace FlightSimulator
             }
         }
 
-        public void setClient(MyTelnetClient telnetClient)
+
+        public void createClient(string ip, int port)
         {
+            ITelnetClient telnetClient = new MyTelnetClient();
             this.telnetClient = telnetClient;
+            telnetClient.connect(ip, port);
         }
         #endregion
 
-      
-  
 
-        
+
+
+
     }
 }
