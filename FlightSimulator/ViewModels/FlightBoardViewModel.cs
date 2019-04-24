@@ -28,13 +28,13 @@ namespace FlightSimulator.ViewModels
             };
         }
 
-        public double Lon
+        public double? Lon
         {
             get { return flightBoardModel.Lon; }
            
         }
 
-        public double Lat
+        public double? Lat
         {
             get { return flightBoardModel.Lat; }
         }

@@ -8,7 +8,7 @@
     <Grid>
         <ScrollViewer Margin="0,0,0.667,10">
             <StackPanel>
-                <TextBox x:Name="AutoPilotText" Height="300"  AcceptsReturn="True" Text="{Binding AutoPilotData}" />
+                <TextBox x:Name="AutoPilotText" Height="300"  AcceptsReturn="True" Text="{Binding AutoPilotData,UpdateSourceTrigger=PropertyChanged}" Background="{Binding BackColor}" />
                 <WrapPanel HorizontalAlignment="Center">
                     <Button Content="Clear"  Width="35" Margin="10" Background="WhiteSmoke" Command="{Binding ClearCommand}"/>
                     <Button Content="OK" Margin="10" Command="{Binding OkCommand}" Width="35" Background="WhiteSmoke"/>

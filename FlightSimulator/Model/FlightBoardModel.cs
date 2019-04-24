@@ -11,8 +11,8 @@ namespace FlightSimulator.Model
 {
     public class FlightBoardModel : BaseNotify
     {
-        private double lat;
-        private double lon;
+        private double? lat;
+        private double? lon;
 
         public void OpenConnections()
         {
@@ -30,7 +30,7 @@ namespace FlightSimulator.Model
         }
 
 
-        public double Lat
+        public double? Lat
         {
             get { return this.lat; }
             set
@@ -41,7 +41,7 @@ namespace FlightSimulator.Model
         }
 
         // property Lon .
-        public double Lon
+        public double? Lon
         {
             get { return this.lon; }
             set

@@ -1,4 +1,5 @@
 ﻿using FlightSimulator.Model.Interface;
+using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,12 +12,18 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
 {
-    class MyTelnetClient : ITelnetClient {
+    class MyTelnetClient : ITelnetClient
+    {
 
         private TcpClient client;
         private BinaryWriter writer;
-        private bool isConnect = false;
-        public string Meassegae
+        private Queue<string> commandsQueue; 
+
+        public MyTelnetClient()
+        {
+            this.commandsQueue = new Queue<string>();
+        }
+     /*   public string Meassegae
         {
             set
             {
@@ -27,7 +34,7 @@ namespace FlightSimulator.Model
                     this.write(value);
                 }
             }
-        }
+        }*/
 
         public void connect(string ip, int port)
         {
@@ -41,28 +48,33 @@ namespace FlightSimulator.Model
                 {
                     Thread.Sleep(100);
                 }
-                this.isConnect = true;
                 client.Connect(ep); //m add if failed - throw.. 
                 Console.WriteLine("client connected to simulator ");
                 //  this.stream = this.client.GetStream() ;
                 this.writer = new BinaryWriter(this.client.GetStream());
-                write("set controls/flight/rudder -1\r\n");
-                write("set controls/flight/aileron -1\r\n");
-            //    write("set controls/flight/rudder -1\r\n");
+                while(!Connection.Instance.StopReading)
+                {
 
+                    while(commandsQueue.Count > 0)
+                    {
+                        writer.Write(Encoding.ASCII.GetBytes(commandsQueue.Peek()));
+                        Console.WriteLine("wrote {0}", commandsQueue.Peek());
+                        commandsQueue.Dequeue();
+                        Thread.Sleep(2000);
+                    }
+                }
             });
             thread.Start();
 
         }
         public void write(string command)
         {
-            Console.WriteLine("writing {0}",command);
-      
-                /* Send data to server */
-                writer.Write(Encoding.ASCII.GetBytes(command));
-                // Get result from server
-            //    int result = reader.ReadInt32();
-        
+            //and here may open thread ,  check if connect and then in whiile check if there are lists in the querue, if there are - write them and wait 2 seconds .
+            Console.WriteLine("got {0}",command);
+
+            this.commandsQueue.Enqueue(command);
+            Console.WriteLine("pushed");
+
         }
 
         public string read() // blocking call. //supposed not to be used in this assignment, FG writes to server only?

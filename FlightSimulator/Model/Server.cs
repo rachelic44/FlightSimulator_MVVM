@@ -84,8 +84,8 @@ namespace FlightSimulator.Model
                        // Console.WriteLine("the values: {0}", input);
                         string[] ddata = input.Split(',');
                       //  Console.WriteLine("the one:{0}", ddata[0]);
-                        flightBoardModel.Lon = double.Parse(ddata[0]);
-                        flightBoardModel.Lat = double.Parse(ddata[1]);
+                        flightBoardModel.Lon = double.Parse(ddata[0],format);
+                        flightBoardModel.Lat = double.Parse(ddata[1],format);
                         string[] result = { ddata[0], ddata[1] };
 
 

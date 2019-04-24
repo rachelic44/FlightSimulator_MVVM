@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace FlightSimulator.ViewModels
 {
@@ -12,6 +13,8 @@ namespace FlightSimulator.ViewModels
     {
         private AutoPilotModel model;
         private string autoPilotData;
+        private string backColor;
+
         public AutoPilotViewModel (AutoPilotModel model)
         {
             this.model = model;
@@ -25,9 +28,24 @@ namespace FlightSimulator.ViewModels
             
             set
             {
+                Console.WriteLine("got here");
                 this.autoPilotData = value;
-             //   NotifyPropertyChanged("AutoPilotData");
+                if(value=="") {
+                    BackColor = "White";
+                } else {
+                    BackColor = "LightPink";
+                }
+             //   NotifyPropertyChanged("AutoPilotData"); m down
             }
+        }
+
+        public string BackColor
+        {
+            get { return this.backColor; }
+            set {
+                this.backColor = value;
+                NotifyPropertyChanged("BackColor");}
+
         }
 
 
@@ -68,9 +86,10 @@ namespace FlightSimulator.ViewModels
                 Console.WriteLine("send it");
                 string[] result = AutoPilotData.Split('\n');
                 foreach(string line in result) {
+                    if (line == "\r\n" || line == "\r" || line == "\n") { continue; };
                     Connection.Instance.TelnetClient.write(line+"\r\n");
                 }
-                this.AutoPilotData = ""; //and not set..
+                this.AutoPilotData = ""; //and not set- to not notify so it wont clear, only clear does
             }
         }
         #endregion
