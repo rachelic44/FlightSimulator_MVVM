@@ -23,9 +23,9 @@
 
             <local:Joystick x:Name="Joystick" Grid.ColumnSpan="4" Grid.RowSpan="4" Grid.Row="0" Padding="70" 
                         Aileron="{Binding Aileron, Mode=OneWayToSource}"
-                        Elevator="{Binding Elevator, Mode=OneWayToSource}" RenderTransformOrigin="0.506,0.663" Margin="-10,-50,10,58.5"/>
+                        Elevator="{Binding Elevator, Mode=OneWayToSource}" RenderTransformOrigin="0.506,0.663" Margin="10,-52,-10,60"/>
 
-            <TextBlock Text="←Throttle→" VerticalAlignment="Center" FontSize="18" Grid.Row="1" Grid.ColumnSpan="2" Margin="20" Grid.RowSpan="2" >
+            <TextBlock Text="←Throttle→" VerticalAlignment="Center" FontSize="18" Margin="-178,78,67,12" Grid.RowSpan="4" >
                 <TextBlock.LayoutTransform>
                     <RotateTransform Angle="90" />
                 </TextBlock.LayoutTransform>
@@ -46,15 +46,15 @@
         Value="{Binding Rudder}" Margin="141,0,10.111,6"/>
 
             <Slider x:Name="throttleSlider" TickPlacement="BottomRight" Minimum="-1" Maximum="1" 
-        TickFrequency="0.1" Orientation="Vertical" Height="300" Grid.Column="0" Grid.RowSpan="5" Grid.Row="0" Margin="64,87,35.667,83"
+        TickFrequency="0.1" Orientation="Vertical" Height="300" Grid.Column="0" Grid.RowSpan="5" Grid.Row="0" Margin="90,89,10,81"
         Value="{Binding Throttle}"/>
 
-            <TextBlock Text="{Binding ElementName=throttleS lider,Path=Value, StringFormat=0.00}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="28,33,20,0" FontSize="12" FontWeight="DemiBold" Height="66" Width="88"/>
+            <TextBlock Text="{Binding ElementName=throttleSlider,Path=Value, StringFormat=0.00}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="52,33,10,0" FontSize="12" FontWeight="DemiBold" Height="66" Width="88"/>
 
-            <TextBlock Text="{Binding ElementName=rudderSlider,Path=Value, StringFormat=0.00}" HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontSize="12" Grid.Row="3" Grid.Column="3" Margin="54,0,74,60" FontWeight="DemiBold" RenderTransformOrigin="0.391,-1.188"/>
+            <TextBlock Text="{Binding ElementName=rudderSlider,Path=Value, StringFormat=0.00}" HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontSize="12" Grid.Row="4" Grid.Column="3" Margin="41,0,88,27" FontWeight="DemiBold" RenderTransformOrigin="0.391,-1.188" Height="49"/>
 
             <TextBlock x:Name="AileronText" Text="{Binding ElementName=Joystick, Path=Aileron, StringFormat=0.00}" 
-                   Grid.Column="3" VerticalAlignment="Top" Margin="11.889,24,10.444,0" FontWeight="DemiBold" Height="58"/>
+                   Grid.Column="3" VerticalAlignment="Top" Margin="0,-12,22,0" FontWeight="DemiBold" Height="58"/>
 
             <TextBlock x:Name="ElevatorText" Text="{Binding ElementName=Joystick, Path=Elevator, StringFormat=0.00}" 
                    Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="85.889,56,0,0" FontWeight="DemiBold" Width="40">
