@@ -94,12 +94,12 @@ namespace FlightSimulator.Model
 
         public void startServer()
         {
-            server.Start();
+           // server.Start();
         }
 
         public void stopServer()
         {
-            server.Stop();
+         //   server.Stop(); ...
         }
 
         //proprties : 

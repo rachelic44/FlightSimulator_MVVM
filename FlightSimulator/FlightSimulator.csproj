@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Connection.cs" />
     <Compile Include="Model\AutoPilotModel.cs" />
     <Compile Include="Model\FlightBoardModel.cs" />
     <Compile Include="ViewModels\AutoPilotViewModel.cs" />

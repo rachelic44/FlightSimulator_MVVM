@@ -37,7 +37,7 @@ namespace FlightSimulator
            // Show();
           //  s.ShowDialog();
             
-
+            
 
         }
         private void TrackFilght_Loaded(object sender, RoutedEventArgs e)

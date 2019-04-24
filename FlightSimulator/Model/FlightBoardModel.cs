@@ -1,7 +1,9 @@
-﻿using FlightSimulator.ViewModels;
+﻿using FlightSimulator.Model.Interface;
+using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,6 +13,20 @@ namespace FlightSimulator.Model
     {
         private double lat;
         private double lon;
+
+        public void OpenConnections()
+        {
+            ISettingsModel app = ApplicationSettingsModel.Instance;
+            string ip = app.FlightServerIP;
+            int portServer = app.FlightInfoPort;
+            int portClient = app.FlightCommandPort;
+            Console.WriteLine("{0},{1},{2} ip stuff", ip, portServer, portClient);
+            Server server = new Server(ip, portServer,this);
+            server.Start();
+            Console.WriteLine("after thread");
+            
+        }
+
 
         public double Lat
         {

@@ -31,7 +31,7 @@ namespace FlightSimulator.Model
         public int FlightCommandPort
         {
             get { return Properties.Settings.Default.FlightCommandPort; }
-            set { Properties.Settings.Default.FlightCommandPort = value; }
+            set { Properties.Settings.Default.FlightCommandPort = value;}
         }
 
         public int FlightInfoPort

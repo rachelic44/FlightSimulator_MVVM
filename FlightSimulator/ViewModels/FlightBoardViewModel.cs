@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -20,29 +21,24 @@ namespace FlightSimulator.ViewModels
             this.flightBoardModel = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                // NotifyPropertyChanged("VM_" + e.PropertyName); };// - kind of reaction, dont have to. cat do other stuff here
-                Console.WriteLine("in pr");
+                 NotifyPropertyChanged(e.PropertyName);// - kind of reaction, dont have to. can do other stuff here
+                // NotifyPropertyChanged("VM_" + e.PropertyName);
+                //Console.WriteLine("/./");
             };
         }
 
         public double Lon
         {
-            get;
-            set;
+            get { return flightBoardModel.Lon; }
+           
         }
 
         public double Lat
         {
-            get;
-            set;
+            get { return flightBoardModel.Lat; }
         }
 
     
-
-
-
-
-
 
         private ICommand openSettings;
         public ICommand OpenSettings
@@ -69,7 +65,16 @@ namespace FlightSimulator.ViewModels
         }
         private void OnClickConnect()
         {
-          
+            Console.WriteLine("on connect func");
+             flightBoardModel.OpenConnections();
+
+           
+
+              /* ITelnetClient tclient = new MyTelnetClient();
+               ISimulatorModel sm = new SimulatorModel(tclient);
+               sm.connectAsClient("127.0.0.1", 5402);
+               sm.startClient();
+               Console.WriteLine("5\n\n");*/
         }
     }
 }

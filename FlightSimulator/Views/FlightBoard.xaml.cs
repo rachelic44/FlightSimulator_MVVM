@@ -32,6 +32,7 @@ namespace FlightSimulator.Views
             this.vm = new FlightBoardViewModel(new FlightBoardModel());
             InitializeComponent();
             this.DataContext = vm;
+            vm.PropertyChanged += Vm_PropertyChanged;
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -47,7 +48,10 @@ namespace FlightSimulator.Views
         {
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon") )
             {
-                Point p1 = new Point(0,0);            // Fill here!
+                //m take the values from the refernce we hold to the vm-("give something" )  if "LON" the line. or both anyway. and write it
+
+                Console.WriteLine("change");
+                Point p1 = new Point((float)vm.Lat, (float)vm.Lon); 
                 planeLocations.AppendAsync(Dispatcher, p1);
             }
         }
