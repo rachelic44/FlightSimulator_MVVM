@@ -87,7 +87,7 @@ namespace FlightSimulator.Model
                         flightBoardModel.Lon = double.Parse(ddata[0],format);
                         flightBoardModel.Lat = double.Parse(ddata[1],format);
                         string[] result = { ddata[0], ddata[1] };
-
+                        Console.WriteLine("model change {0}, {1}", double.Parse(ddata[0], format), double.Parse(ddata[1], format));
 
 
 

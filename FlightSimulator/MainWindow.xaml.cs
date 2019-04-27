@@ -3,6 +3,7 @@ using FlightSimulator.Model.Interface;
 using FlightSimulator.Views;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,10 +35,14 @@ namespace FlightSimulator
             //Settings s = new Settings();
            
             InitializeComponent();
-           // Show();
-          //  s.ShowDialog();
-            
-            
+            var format = new NumberFormatInfo();
+            format.NegativeSign = "-";
+            format.NumberDecimalSeparator = ".";
+            float s = float.Parse("-5.3");
+            Console.WriteLine(s); 
+
+
+
 
         }
         private void TrackFilght_Loaded(object sender, RoutedEventArgs e)

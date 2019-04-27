@@ -83,13 +83,15 @@ namespace FlightSimulator.ViewModels
             // model.ReloadSettings();
             if (AutoPilotData != "")
             {
-                Console.WriteLine("send it");
-                string[] result = AutoPilotData.Split('\n');
-                foreach(string line in result) {
-                    if (line == "\r\n" || line == "\r" || line == "\n") { continue; };
-                    Connection.Instance.TelnetClient.write(line+"\r\n");
-                }
+                /*  Console.WriteLine("send it");  //TODO CLEAR IT, TRANSFARED TO THR MODEL
+                  string[] result = AutoPilotData.Split('\n');
+                  foreach(string line in result) {
+                      if (line == "\r\n" || line == "\r" || line == "\n") { continue; };
+                      Connection.Instance.TelnetClient.write(line+"\r\n");
+                  }*/
+                this.model.writeMessages(AutoPilotData);
                 this.AutoPilotData = ""; //and not set- to not notify so it wont clear, only clear does
+                Console.WriteLine("g sec 2 2 2  ");
             }
         }
         #endregion

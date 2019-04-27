@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:Views="clr-namespace:FlightSimulator.Views"
-        mc:Ignorable="d"
+        mc:Ignorable="d" 
         Title="FlightSimulator" Height="590.333" Width="1070" FontWeight="Bold" >
     <Window.Resources>
         <Style x:Key="connect and settings">
@@ -17,18 +17,19 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Label Content="Flight Simulator" FontSize="25" HorizontalAlignment="Center" Foreground="Orange" Margin="432,0" />
+        <Label Content="Flight Simulator" FontSize="25" HorizontalAlignment="Center" Foreground="Orange" Margin="412,0,432,0" Width="218" />
         <Grid Name="IncludeAll" Margin="0,44,0.333,23.667">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="531*" />
+                <ColumnDefinition Width="490*" />
+                <ColumnDefinition Width="41*"/>
                 <ColumnDefinition Width="25*"/>
                 <ColumnDefinition Width="506*"/>
             </Grid.ColumnDefinitions>
-            <Views:FlightBoard Grid.Column="0" Loaded="TrackFilght_Loaded"/>
-            <TabControl Grid.Column="1" Grid.ColumnSpan="2">
+            <Views:FlightBoard Grid.Column="0" Loaded="TrackFilght_Loaded" Grid.ColumnSpan="2"/>
+            <TabControl Grid.Column="2" Grid.ColumnSpan="2">
                 <TabItem Header="Manual">
                     <Views:Manual/>
                 </TabItem>
@@ -38,5 +39,4 @@
             </TabControl>
         </Grid>
     </Grid>
-    
 </Window>

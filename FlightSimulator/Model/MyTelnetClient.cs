@@ -58,14 +58,13 @@ namespace FlightSimulator.Model
                     while(commandsQueue.Count > 0)
                     {
                         writer.Write(Encoding.ASCII.GetBytes(commandsQueue.Peek()));
+                        writer.Flush();
                         Console.WriteLine("wrote {0}", commandsQueue.Peek());
                         commandsQueue.Dequeue();
-                        Thread.Sleep(2000);
                     }
                 }
             });
             thread.Start();
-
         }
         public void write(string command)
         {
