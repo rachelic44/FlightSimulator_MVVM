@@ -28,7 +28,6 @@ namespace FlightSimulator.ViewModels
             
             set
             {
-                Console.WriteLine("got here");
                 this.autoPilotData = value;
                 if(value=="") {
                     BackColor = "White";
@@ -90,7 +89,7 @@ namespace FlightSimulator.ViewModels
                       Connection.Instance.TelnetClient.write(line+"\r\n");
                   }*/
                 this.model.writeMessages(AutoPilotData);
-                this.AutoPilotData = ""; //and not set- to not notify so it wont clear, only clear does
+                this.AutoPilotData = ""; //without deleting (only on clear)
                 Console.WriteLine("g sec 2 2 2  ");
             }
         }

@@ -49,7 +49,7 @@ namespace FlightSimulator.Views
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon") )
             {
                 double? lat = vm.Lat; double? lon = vm.Lon;
-                Console.WriteLine("View changing lat and lon to {0} ,{1}", lat, lon);
+             //   Console.WriteLine("View changing lat and lon to {0} ,{1}", lat, lon); print
                
                 if (lat!= null && lon != null)
                 {

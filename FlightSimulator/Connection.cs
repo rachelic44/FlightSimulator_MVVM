@@ -60,8 +60,8 @@ namespace FlightSimulator
            if(!this.simulatorOpened) //TODO CHANGE, REMOVE
             {
                 Console.WriteLine("write when shouldnt: {0}",message);
-            } else
-            {
+            } else {
+                Console.WriteLine("in AskClientToWrite");
                 this.telnetClient.write(message);
             }
         }

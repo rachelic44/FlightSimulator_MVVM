@@ -136,12 +136,8 @@ namespace FlightSimulator.Views
         
             ///!!!!!!!!!!!!!!!!!
             /// YOU MUST CHANGE THE FUNCTION!!!!
-            ///!!!!!!!!!!!!!!
+            ///!!!!!!!!!!!!!!!!!
             if (!Knob.IsMouseCaptured) return;
-
-            //Console.WriteLine(Aileron);
-            //  Console.WriteLine(Elevator);
-            // Console.WriteLine(this.canvasHeight);
 
 
             Point newPos = e.GetPosition(Base);
@@ -151,9 +147,10 @@ namespace FlightSimulator.Views
             double distance = Math.Round(Math.Sqrt(deltaPos.X * deltaPos.X + deltaPos.Y * deltaPos.Y));
             if (distance >= canvasWidth / 2 || distance >= canvasHeight / 2)
                 return;
-            Aileron = -deltaPos.Y/(this.canvasHeight/2);
-            Elevator = deltaPos.X/(this.canvasWidth/2);
-
+            Aileron = deltaPos.X/(this.canvasHeight/2);
+            Elevator = -deltaPos.Y / (this.canvasWidth/2);
+            Console.WriteLine(Aileron);
+            Console.WriteLine(Elevator);
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;
 

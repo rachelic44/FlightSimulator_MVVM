@@ -88,7 +88,6 @@
     <Compile Include="Model\Interface\ITelnetClient.cs" />
     <Compile Include="Model\MyTelnetClient.cs" />
     <Compile Include="Model\Server.cs" />
-    <Compile Include="Model\SimulatorModel.cs" />
     <Compile Include="ViewModels\BaseNotify.cs" />
     <Compile Include="ViewModels\FlightBoardViewModel.cs" />
     <Compile Include="ViewModels\Windows\SettingsWindowViewModel.cs" />

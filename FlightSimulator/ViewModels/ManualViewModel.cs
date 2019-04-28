@@ -26,7 +26,6 @@ namespace FlightSimulator.ViewModels
             set
             {
                 this.aileron = value;
-                Console.WriteLine("fffvbt");
                 //tell the model to send to the simulator (this is the other side, so have to declere oneWayToSource
                 model.sendMessage("set " + aileronPath + " " + Convert.ToString(value));
             }
@@ -38,7 +37,6 @@ namespace FlightSimulator.ViewModels
             set
             {
                 this.elevator = value;
-                Console.WriteLine("fffvbt");
                 //tell the model to send to the simulator (this is the other side, so have to declere oneWayToSource
                 model.sendMessage("set " + elevatorPath + " " + Convert.ToString(value));
               
@@ -51,7 +49,6 @@ namespace FlightSimulator.ViewModels
             set
             {
                 this.throttle = value;
-                Console.WriteLine("throtle");
                 //tell the model to send to the simulator (this is the other side, so have to declere oneWayToSource
                 model.sendMessage("set " + throttlePath + " " + Convert.ToString(value));
 

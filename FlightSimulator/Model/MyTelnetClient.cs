@@ -57,10 +57,19 @@ namespace FlightSimulator.Model
 
                     while(commandsQueue.Count > 0)
                     {
-                        writer.Write(Encoding.ASCII.GetBytes(commandsQueue.Peek()));
-                        writer.Flush();
-                        Console.WriteLine("wrote {0}", commandsQueue.Peek());
-                        commandsQueue.Dequeue();
+                        Console.WriteLine("queue empty ");
+                        try
+                        {
+                            Console.WriteLine("trying to send as client ");
+                            writer.Write(Encoding.ASCII.GetBytes(commandsQueue.Peek()));
+                            writer.Flush();
+
+                            Console.WriteLine("wrote {0}", commandsQueue.Peek());
+                            commandsQueue.Dequeue();
+                        } catch (Exception e) {
+                            Console.WriteLine("Exception while writing to the simulator");
+                            break;
+                        }
                     }
                 }
             });
@@ -68,12 +77,13 @@ namespace FlightSimulator.Model
         }
         public void write(string command)
         {
+            Console.WriteLine("not good 1");
             if (!Connection.Instance.StopReading)
             {
-                Console.WriteLine("got {0}", command);
+                Console.WriteLine("got {0}", command); 
 
                 this.commandsQueue.Enqueue(command);
-                Console.WriteLine("pushed");
+              //  Console.WriteLine("pushed"); print
             } 
 
         }

@@ -45,7 +45,8 @@ namespace FlightSimulator.Model
                 //todo : here to change the boolen that will raise the function of the model (or call the func).maybe the boolean needed to somwhere else 
                 Console.WriteLine("Got new connection");
 
-                /* change the boolean to true, to let know that the simulator is now opened, and can be connected to as a server */ 
+                /* change the boolean to true, to let know that the simulator is now opened,
+                 * and can be connected to as a server */ 
                 Connection.Instance.SimulatorOpened = true;
 
                 BinaryReader reader = new BinaryReader(client.GetStream());
@@ -59,16 +60,19 @@ namespace FlightSimulator.Model
                     {
                         string input = "";
                         char s;
-                        while ((s = reader.ReadChar()) != '\n') input += s;
+                        while ((s = reader.ReadChar()) != '\n')
+                        {
+                            input += s;
+                        }
                        // Console.WriteLine("the values: {0}", input);
                         string[] ddata = input.Split(',');
                       //  Console.WriteLine("the one:{0}", ddata[0]);
                         flightBoardModel.Lon = double.Parse(ddata[0],format);
                         flightBoardModel.Lat = double.Parse(ddata[1],format);
                         string[] result = { ddata[0], ddata[1] };
-                        Console.WriteLine("model change {0}, {1}", double.Parse(ddata[0], format), double.Parse(ddata[1], format));
+                      //  Console.WriteLine("model change {0}, {1}", double.Parse(ddata[0], format), double.Parse(ddata[1], format));
 
-
+                        //print up
 
                         /*get all the values from the simulator, put it in some map so the simulatormodel can 
                          * use it. evn better, create a client handler to *handle* it, so afterwards it will be easier
@@ -78,8 +82,9 @@ namespace FlightSimulator.Model
 
                         //System.Threading.Thread.Sleep(100);
                     }
-                    catch (SocketException)
+                    catch (Exception ex)
                     {
+                        Console.WriteLine("Exception while reading from the simulator");
                         break;
                     }
                 }

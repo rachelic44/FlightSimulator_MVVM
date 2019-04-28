@@ -35,9 +35,8 @@ namespace FlightSimulator.Model
         public void sendMessage(string message)
         {
             Console.WriteLine("in MANUALmodel");
-
             Connection.Instance.AskClientToWrite(message+"\r\n");
-            Console.WriteLine("in trhth ttttttttttttttttt");
+          
         }
     }
 }

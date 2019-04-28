@@ -21,7 +21,8 @@ namespace FlightSimulator.ViewModels
             this.flightBoardModel = model;
             model.PropertyChanged += delegate (Object sender, PropertyChangedEventArgs e)
             {
-                Console.WriteLine("vm n");
+             //   Console.WriteLine("vm n"); print
+
                 /* let the observers of the vie model the model) know that a property changed */
                  NotifyPropertyChanged(e.PropertyName);// - kind of reaction, dont have to. can do other stuff here
                 // NotifyPropertyChanged("VM_" + e.PropertyName);
