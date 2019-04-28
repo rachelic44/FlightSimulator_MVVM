@@ -62,7 +62,7 @@ namespace FlightSimulator.ViewModels
             {
                 this.rudder = value;
                 Console.WriteLine("rudder");
-                //tell the model to send to the simulator (this is the other side, so have to declere oneWayToSource
+                //tell the model to send to th simulator (this is the other side, so have to declere oneWayToSource
                 model.sendMessage("set " + rudderPath + " " + Convert.ToString(value));
 
             }
