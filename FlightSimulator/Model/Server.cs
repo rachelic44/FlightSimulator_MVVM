@@ -95,8 +95,8 @@ namespace FlightSimulator.Model
         }
         public void Stop(TcpClient client)
         {
-            listener.Stop();
             client.Close();
+            listener.Stop();
         }
     }
 

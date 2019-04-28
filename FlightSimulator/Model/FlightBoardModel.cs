@@ -50,5 +50,10 @@ namespace FlightSimulator.Model
                 NotifyPropertyChanged("Lon");
             }
         }
+
+        public void CloseConnections()
+        {
+            Connection.Instance.StopReading = true;
+        }
     }
 }

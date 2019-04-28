@@ -69,15 +69,22 @@ namespace FlightSimulator.ViewModels
         private void OnClickConnect()
         {
             Console.WriteLine("on connect func");
-             flightBoardModel.OpenConnections();
+            flightBoardModel.OpenConnections();
 
-           
+        }
 
-              /* ITelnetClient tclient = new MyTelnetClient();
-               ISimulatorModel sm = new SimulatorModel(tclient);
-               sm.connectAsClient("127.0.0.1", 5402);
-               sm.startClient();
-               Console.WriteLine("5\n\n");*/
+        private ICommand disconnectCommand;
+        public ICommand DisConnectCommand
+        {
+            get
+            {
+                return disconnectCommand ?? (disconnectCommand = new CommandHandler(() => DisConnection()));
+            }
+        }
+
+        private void DisConnection()
+        {
+            flightBoardModel.CloseConnections();
         }
     }
 }
