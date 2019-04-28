@@ -80,7 +80,6 @@ namespace FlightSimulator.ViewModels.Windows
         }
         private void OnClick()
         {
-            Console.WriteLine("888");
             model.SaveSettings();
         }
         #endregion

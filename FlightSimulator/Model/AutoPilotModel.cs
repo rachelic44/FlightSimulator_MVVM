@@ -22,7 +22,7 @@ namespace FlightSimulator.Model
 
         public void writeMessages(string messages)
         {
-           
+            /* if the message is not empty */
             if (messages != "")
             {
                 string[] result = messages.Split('\n');
@@ -36,7 +36,7 @@ namespace FlightSimulator.Model
 
                 /* create a task to run in background and send each meassage, 2 seconds between each one. */
                 Task t = new Task(() => {
-                    Console.WriteLine("g first1 1 1 ");
+
                     while (commandsQueue.Count > 0)
                     {
                         Connection.Instance.AskClientToWrite(commandsQueue.Peek() + "\r\n");

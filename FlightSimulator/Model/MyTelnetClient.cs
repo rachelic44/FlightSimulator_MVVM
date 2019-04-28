@@ -17,57 +17,45 @@ namespace FlightSimulator.Model
 
         private TcpClient client;
         private BinaryWriter writer;
-        private Queue<string> commandsQueue; 
+        private Queue<string> commandsQueue;
 
         public MyTelnetClient()
         {
             this.commandsQueue = new Queue<string>();
         }
-     /*   public string Meassegae
-        {
-            set
-            {
-                Console.WriteLine("bh");
-                Console.WriteLine(value);
-                if (isConnect)
-                {
-                    this.write(value);
-                }
-            }
-        }*/
 
         public void connect(string ip, int port)
         {
+            /* creat a TCP client to write message to the simulator with */
             IPEndPoint ep = new IPEndPoint(IPAddress.Parse(ip), port);
             TcpClient client = new TcpClient();
             this.client = client;
 
             Thread thread = new Thread(() => {
 
+                /* make sure to not start writing before the simulator is opened */
                 while (!Connection.Instance.SimulatorOpened)
                 {
                     Thread.Sleep(100);
                 }
-                client.Connect(ep); //m add if failed - throw.. 
-                Console.WriteLine("client connected to simulator ");
-                //  this.stream = this.client.GetStream() ;
+                /* the simulator is opened , connect */
+                client.Connect(ep); //add fail cheecl TODO
                 this.writer = new BinaryWriter(this.client.GetStream());
+
+                /* make a loop, as long as not StopReading, write meassages to the simulator */
                 while(!Connection.Instance.StopReading)
                 {
-
+                    /* for each command in the command queue, write it */
                     while(commandsQueue.Count > 0)
                     {
-                        Console.WriteLine("queue empty ");
                         try
                         {
-                            Console.WriteLine("trying to send as client ");
                             writer.Write(Encoding.ASCII.GetBytes(commandsQueue.Peek()));
                             writer.Flush();
-
-                            Console.WriteLine("wrote {0}", commandsQueue.Peek());
                             commandsQueue.Dequeue();
+
                         } catch (Exception) {
-                            Console.WriteLine("Exception while writing to the simulator");
+
                             break;
                         }
                     }
@@ -78,12 +66,9 @@ namespace FlightSimulator.Model
         }
         public void write(string command)
         {
-            Console.WriteLine("not good 1");
             if (!Connection.Instance.StopReading)
             {
-
                 this.commandsQueue.Enqueue(command);
-              //  Console.WriteLine("pushed"); print
             } 
 
         }
@@ -96,7 +81,6 @@ namespace FlightSimulator.Model
         public void disconnect()
         {
             client.Close();
-            Console.WriteLine("client close");
         }
     }
 

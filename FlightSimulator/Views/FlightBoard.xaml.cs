@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -48,15 +49,23 @@ namespace FlightSimulator.Views
         {
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon") )
             {
+                /* only if the lan and lot are not nul, draw them on the flight board */
                 double? lat = vm.Lat; double? lon = vm.Lon;
-             //   Console.WriteLine("View changing lat and lon to {0} ,{1}", lat, lon); print
-               
                 if (lat!= null && lon != null)
                 {
                     Point p1 = new Point((double)lat, (double)lon);
                     planeLocations.AppendAsync(Dispatcher, p1);
+                   
                 }
             }
+            if(e.PropertyName.Equals("Closing"))
+            {
+                planeLocations.Collection.Clear();
+                Thread.Sleep(10);
+                planeLocations.Collection.Clear();
+            }
+            
+      
         }
 
     }

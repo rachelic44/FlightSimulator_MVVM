@@ -21,11 +21,12 @@ namespace FlightSimulator.ViewModels
             this.autoPilotData = "";
         }
 
-
+        /* property AutoPilotData, binded to the xaml */
         public string AutoPilotData
         {
             get { return this.autoPilotData; }
             
+            /* set without notifying, so only "clear" method will notify to delete the string */
             set
             {
                 this.autoPilotData = value;
@@ -34,21 +35,21 @@ namespace FlightSimulator.ViewModels
                 } else {
                     BackColor = "LightPink";
                 }
-             //   NotifyPropertyChanged("AutoPilotData"); m down
             }
         }
 
+        /* back color, binded to the code behind, so each change will change the back color, based on Convertor  */
         public string BackColor
         {
             get { return this.backColor; }
             set {
                 this.backColor = value;
                 NotifyPropertyChanged("BackColor");}
-
         }
 
 
         #region Commands
+        /*ClearCommand - to clear the text and change the color accodingly */
         #region ClearCommand
         private ICommand _ClearCommand;
         public ICommand ClearCommand
@@ -58,11 +59,13 @@ namespace FlightSimulator.ViewModels
                 return _ClearCommand ?? (_ClearCommand = new CommandHandler(() => OnClear()));
             }
         }
+
+        
         private void OnClear()
         {
-            Console.WriteLine("yayyy");
+            /* delete the text and notify the xaml that the text property has changed  */
             this.AutoPilotData = "";
-            NotifyPropertyChanged("AutoPilotData"); //in set../
+            NotifyPropertyChanged("AutoPilotData"); 
         }
         #endregion
 
@@ -78,19 +81,11 @@ namespace FlightSimulator.ViewModels
         }
         private void OnOk()
         {
-            Console.WriteLine("dfsdfsfdsf");
-            // model.ReloadSettings();
             if (AutoPilotData != "")
             {
-                /*  Console.WriteLine("send it");  //TODO CLEAR IT, TRANSFARED TO THR MODEL
-                  string[] result = AutoPilotData.Split('\n');
-                  foreach(string line in result) {
-                      if (line == "\r\n" || line == "\r" || line == "\n") { continue; };
-                      Connection.Instance.TelnetClient.write(line+"\r\n");
-                  }*/
                 this.model.writeMessages(AutoPilotData);
-                this.AutoPilotData = ""; //without deleting (only on clear)
-                Console.WriteLine("g sec 2 2 2  ");
+                /* change the string without notifying on the color changed */ 
+                this.AutoPilotData = ""; 
             }
         }
         #endregion
