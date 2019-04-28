@@ -96,7 +96,7 @@ namespace FlightSimulator.Model
         public void disconnect()
         {
             client.Close();
-            Console.WriteLine("closed client");
+            Console.WriteLine("client close");
         }
     }
 
