@@ -25,30 +25,9 @@ namespace FlightSimulator
     {
         public MainWindow()
         {
-            /* Console.WriteLine("5\n\n");
-              ITelnetClient tclient = new MyTelnetClient();
-              ISimulatorModel sm = new SimulatorModel(tclient);
-              sm.connectAsClient("127.0.0.1", 5402);
-              sm.startClient();
-              Console.WriteLine("5\n\n");*/
-
-            //Settings s = new Settings();
-           
             InitializeComponent();
-            var format = new NumberFormatInfo();
-            format.NegativeSign = "-";
-            format.NumberDecimalSeparator = ".";
-            float s = float.Parse("-5.3");
-            Console.WriteLine(s); 
-
-
-
-
         }
-        private void TrackFilght_Loaded(object sender, RoutedEventArgs e)
-        {
-
-        }
+      
 
     }
 }

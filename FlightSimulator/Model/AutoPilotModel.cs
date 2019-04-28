@@ -25,7 +25,6 @@ namespace FlightSimulator.Model
            
             if (messages != "")
             {
-                Console.WriteLine("sending it");
                 string[] result = messages.Split('\n');
 
                 /* push all the messages to the queue */

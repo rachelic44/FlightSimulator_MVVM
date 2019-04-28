@@ -18,7 +18,6 @@ namespace FlightSimulator.Model
         public bool CanExecute(object parameter)
         {
             //when changes for true, let all the listeners know that can execute - automatically will(t)
-           // CanExecuteChanged(this,);
             return true;
         }
 
@@ -26,7 +25,6 @@ namespace FlightSimulator.Model
 
         public void Execute(object parameter)
         {
-            
             _action();
         }
     }

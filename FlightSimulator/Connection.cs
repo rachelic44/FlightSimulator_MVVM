@@ -52,16 +52,15 @@ namespace FlightSimulator
         {
             ITelnetClient telnetClient = new MyTelnetClient();
             this.telnetClient = telnetClient;
+
             telnetClient.connect(ip, port);
         }
 
         public void AskClientToWrite(string message)
         {
-           if(!this.simulatorOpened) //TODO CHANGE, REMOVE
+            /* send the telnet clitent the message, write it only if the simulator is opened */
+           if(this.simulatorOpened) 
             {
-                Console.WriteLine("write when shouldnt: {0}",message);
-            } else {
-                Console.WriteLine("in AskClientToWrite");
                 this.telnetClient.write(message);
             }
         }
