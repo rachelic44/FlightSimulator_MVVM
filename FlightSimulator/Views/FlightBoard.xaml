@@ -34,10 +34,9 @@
                 <RowDefinition Height="27.263"/>
                 <RowDefinition Height="7.404"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,160,315.457,159.667">Lon</TextBlock>
-            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Margin="0,0,0,27" Grid.RowSpan="2" Grid.ColumnSpan="2">
-            </d3:ChartPlotter>
-            <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center" Grid.Column="2" Margin="18.543,4.333,402,3.333" Grid.RowSpan="2">Lat</TextBlock>
+            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,160,315,160" Height="27" Width="35">Lon</TextBlock>
+            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Grid.ColumnSpan="2"/>
+            <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center" Grid.Column="2" Margin="19,4,403,3" Grid.RowSpan="2" Width="28">Lat</TextBlock>
         </Grid>
     </DockPanel>
 </UserControl>

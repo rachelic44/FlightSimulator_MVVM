@@ -9,6 +9,35 @@ namespace FlightSimulator.Model
 {
     class ManualModel : BaseNotify
     {
+        private double rudder;
+        private double throttle;
+        private double aileron;
+        private double elevator;
+        public double Rudder
+        {
+            set { this.rudder = value; }
+        }
 
+        public double Throttle
+        {
+            set { this.throttle = value; }
+        }
+
+        public double Aileron
+        {
+            set { this.aileron = value; }
+        }
+
+        public double Elevator
+        {
+            set { this.elevator = value; }
+        }
+        public void sendMessage(string message)
+        {
+            Console.WriteLine("in MANUALmodel");
+
+            Connection.Instance.AskClientToWrite(message+"\r\n");
+            Console.WriteLine("in trhth ttttttttttttttttt");
+        }
     }
 }

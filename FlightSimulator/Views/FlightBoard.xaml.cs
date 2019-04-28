@@ -48,11 +48,12 @@ namespace FlightSimulator.Views
         {
             if(e.PropertyName.Equals("Lat") || e.PropertyName.Equals("Lon") )
             {
-                
-                if (vm.Lat != null && vm.Lon != null)
+                double? lat = vm.Lat; double? lon = vm.Lon;
+                Console.WriteLine("View changing lat and lon to {0} ,{1}", lat, lon);
+               
+                if (lat!= null && lon != null)
                 {
-                    Console.WriteLine("view no");
-                    Point p1 = new Point((float)vm.Lat, (float)vm.Lon);
+                    Point p1 = new Point((double)lat, (double)lon);
                     planeLocations.AppendAsync(Dispatcher, p1);
                 }
             }

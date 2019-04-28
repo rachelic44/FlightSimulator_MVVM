@@ -57,27 +57,6 @@ namespace FlightSimulator.Model
                 {
                     try
                     {
-                        /*buffer = reader.ReadString();
-                        
-                        res += buffer;
-                        
-                        
-                        if (!(res.Contains("\r\n") || res.Contains("\n"))) {
-                            continue;
-                        }
-                        Console.WriteLine("the values: {0}", res);
-
-                        // flightBoardModel.Lon=res.first ****
-
-                        data = res.Split(',');
-                        flightBoardModel.Lon = Double.Parse(data[0], format);
-                        flightBoardModel.Lat = Double.Parse(data[1], format);
-                        res = (res.Split('\n'))[1];
-                        Console.WriteLine("the res: {0}", res);
-                        // res = "";*/
-
-
-
                         string input = "";
                         char s;
                         while ((s = reader.ReadChar()) != '\n') input += s;

@@ -68,11 +68,13 @@ namespace FlightSimulator.Model
         }
         public void write(string command)
         {
-            //and here may open thread ,  check if connect and then in whiile check if there are lists in the querue, if there are - write them and wait 2 seconds .
-            Console.WriteLine("got {0}",command);
+            if (!Connection.Instance.StopReading)
+            {
+                Console.WriteLine("got {0}", command);
 
-            this.commandsQueue.Enqueue(command);
-            Console.WriteLine("pushed");
+                this.commandsQueue.Enqueue(command);
+                Console.WriteLine("pushed");
+            } 
 
         }
 

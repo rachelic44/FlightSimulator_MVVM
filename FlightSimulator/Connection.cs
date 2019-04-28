@@ -20,11 +20,7 @@ namespace FlightSimulator
         private bool simulatorOpened = false;
         private bool stopReading = false;
 
-        public ITelnetClient TelnetClient
-        {
-            get { return this.telnetClient; }
-            set { this.telnetClient = value; }
-        }
+   
         public bool SimulatorOpened
         {
             get { return this.simulatorOpened;  }
@@ -57,6 +53,17 @@ namespace FlightSimulator
             ITelnetClient telnetClient = new MyTelnetClient();
             this.telnetClient = telnetClient;
             telnetClient.connect(ip, port);
+        }
+
+        public void AskClientToWrite(string message)
+        {
+           if(!this.simulatorOpened) //TODO CHANGE, REMOVE
+            {
+                Console.WriteLine("write when shouldnt: {0}",message);
+            } else
+            {
+                this.telnetClient.write(message);
+            }
         }
         #endregion
 

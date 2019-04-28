@@ -40,7 +40,7 @@ namespace FlightSimulator.Model
                     Console.WriteLine("g first1 1 1 ");
                     while (commandsQueue.Count > 0)
                     {
-                        Connection.Instance.TelnetClient.write(commandsQueue.Peek() + "\r\n");
+                        Connection.Instance.AskClientToWrite(commandsQueue.Peek() + "\r\n");
                         commandsQueue.Dequeue();
                         Thread.Sleep(2000);
                     }
