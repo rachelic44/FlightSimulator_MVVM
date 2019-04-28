@@ -7,10 +7,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightSimulator
+namespace FlightSimulator 
 {
     class Connection : BaseNotify
     {
+        /* THE COMMANDS TASK */
         private Connection() 
         {
 

@@ -146,8 +146,8 @@ namespace FlightSimulator.Views
 
             /* Changes : changed the axes rounds, so the Aileron will control the x axis, and the Elevator will
              * control the Y axis. In addition, Normalize the values by dividing it eith canvas/2. Rounding the result. */
-            Aileron = deltaPos.X/(this.canvasHeight/2);
-            Elevator = -deltaPos.Y / (this.canvasWidth/2);
+            Aileron = Math.Round(deltaPos.X/(this.canvasHeight/2),2);
+            Elevator = Math.Round(-deltaPos.Y / (this.canvasWidth/2),2);
 
             knobPosition.X = deltaPos.X;
             knobPosition.Y = deltaPos.Y;

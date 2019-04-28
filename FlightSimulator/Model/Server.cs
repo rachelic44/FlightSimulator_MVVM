@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace FlightSimulator.Model
 {
+    /* THE INFO CLASS */
     class Server
     {
         string ip;
