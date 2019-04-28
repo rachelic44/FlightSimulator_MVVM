@@ -26,7 +26,7 @@ namespace FlightSimulator.ViewModels
             set
             {
                 this.aileron = value;
-                //tell the model to send to the simulator (this is the other side, so have to declere oneWayToSource
+                //tell the model to send to the  simulator (this is the other side, so have to declere oneWayToSource
                 model.sendMessage("set " + aileronPath + " " + Convert.ToString(value));
             }
         }
