@@ -66,13 +66,13 @@ namespace FlightSimulator.Model
 
                             Console.WriteLine("wrote {0}", commandsQueue.Peek());
                             commandsQueue.Dequeue();
-                        } catch (Exception e) {
+                        } catch (Exception) {
                             Console.WriteLine("Exception while writing to the simulator");
                             break;
                         }
                     }
                 }
-                client.Close();
+                disconnect();
             });
             thread.Start();
         }
@@ -81,7 +81,6 @@ namespace FlightSimulator.Model
             Console.WriteLine("not good 1");
             if (!Connection.Instance.StopReading)
             {
-                Console.WriteLine("got {0}", command); 
 
                 this.commandsQueue.Enqueue(command);
               //  Console.WriteLine("pushed"); print
@@ -89,7 +88,7 @@ namespace FlightSimulator.Model
 
         }
 
-        public string read() // blocking call. //supposed not to be used in this assignment, FG writes to server only?
+        public string read() 
         {
             return "";
         }
@@ -97,6 +96,7 @@ namespace FlightSimulator.Model
         public void disconnect()
         {
             client.Close();
+            Console.WriteLine("closed client");
         }
     }
 

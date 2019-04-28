@@ -82,7 +82,7 @@ namespace FlightSimulator.Model
 
                         //System.Threading.Thread.Sleep(100);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         Console.WriteLine("Exception while reading from the simulator");
                         break;

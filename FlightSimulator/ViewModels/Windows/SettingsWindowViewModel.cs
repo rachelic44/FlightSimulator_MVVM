@@ -91,36 +91,17 @@ namespace FlightSimulator.ViewModels.Windows
         {
             get
             {
-                Console.WriteLine("D");
                 return _cancelCommand ?? (_cancelCommand = new CommandHandler(() => OnCancel()));
             }
         }
         private void OnCancel()
         {
-            Console.WriteLine("FE");
             model.ReloadSettings();
         }
 
         public Action CloseAction { get; set; }
 
-        private ICommand _cancelCommando;
-        public ICommand CancelCommando
-        {
-            get
-            {
-                if (_cancelCommando == null)
-                {
-                    _cancelCommando = new CommandHandlerWArg(
-                          x =>
-                          {
-                              Console.WriteLine("5553");
-                              x?.Close();
-                          });
-                }
-                
-                return _cancelCommando;
-            }
-        }
+     
 
         #endregion
         #endregion

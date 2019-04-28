@@ -54,6 +54,7 @@ namespace FlightSimulator.Model
         public void CloseConnections()
         {
             Connection.Instance.StopReading = true;
+            Connection.Instance.SimulatorOpened = false;
         }
     }
 }
