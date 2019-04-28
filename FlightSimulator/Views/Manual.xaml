@@ -30,7 +30,7 @@
             </Grid.RowDefinitions>
 
             <!--THROTTLE-->
-            <TextBlock Text="←Throttle→" VerticalAlignment="Center" FontSize="18" Margin="-198,104,75,5" Grid.RowSpan="4" Height="243" >
+            <TextBlock Text="←Throttle→" VerticalAlignment="Center" FontSize="18" Margin="-222,72,261.667,37" Grid.RowSpan="4" Height="243" >
                 <TextBlock.LayoutTransform>
                     <RotateTransform Angle="90" />
                 </TextBlock.LayoutTransform>
@@ -45,14 +45,14 @@
 
 
             <!--RUDDER-->
-            <TextBlock Text="←Rudder→" FontSize="16"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="326,0,137.667,85" Grid.Row="4" Height="21" Width="79"/>
+            <TextBlock Text="←Rudder→" FontSize="16"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="323,0,140.667,73" Grid.Row="4" Height="21" Width="79"/>
 
             <TextBlock Text="{Binding ElementName=rudderSlider,Path=Value, StringFormat=0.00}" 
                        HorizontalAlignment="Center" VerticalAlignment="Bottom"  FontSize="16" Grid.Row="4" Grid.Column="8" Margin="17,0,31.667,27" FontWeight="DemiBold" RenderTransformOrigin="0.391,-1.188" Height="49" Width="50" Grid.ColumnSpan="3"/>
 
             <Slider x:Name="rudderSlider" TickPlacement="BottomRight" Minimum="-1" Maximum="1" 
                     TickFrequency="0.1" VerticalAlignment="Bottom"  Height="70" Grid.Row="4"
-                    Value="{Binding Rudder}" Margin="181,0,6,12" Grid.ColumnSpan="3"/>
+                    Value="{Binding Rudder}" Margin="179,0,7.667,-9"/>
 
 
             <!-- AILERON-->
@@ -64,7 +64,7 @@
 
             <!--ELEVATOR-->
             <TextBlock x:Name="ElevatorName" Text="{Binding Elevator, UpdateSourceTrigger=PropertyChanged ,Mode=OneWayToSource, StringFormat={}{0:0.00}}" 
-                   Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="14,66,0,0" FontWeight="DemiBold" Width="30" FontSize="16" Height="38" Grid.ColumnSpan="2">
+                   Grid.Column="8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="13.333,7,0,0" FontWeight="DemiBold" Width="46" FontSize="16" Height="38" Grid.ColumnSpan="2">
                 <TextBlock.LayoutTransform>
                     <RotateTransform Angle="270" />
                 </TextBlock.LayoutTransform>
