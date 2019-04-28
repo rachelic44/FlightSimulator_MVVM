@@ -57,14 +57,15 @@ namespace FlightSimulator.Views
                     planeLocations.AppendAsync(Dispatcher, p1);
                    
                 }
-
-            } /*else if(e.PropertyName.Equals("Closing")) {
+            }
+          /*  if(e.PropertyName.Equals("Closing"))
+            {
                 planeLocations.Collection.Clear();
-                Thread.Sleep(100);
-                planeLocations.Collection.Clear();
-                Thread.Sleep(100);
+                Thread.Sleep(10);
                 planeLocations.Collection.Clear();
             }*/
+            
+      
         }
 
     }

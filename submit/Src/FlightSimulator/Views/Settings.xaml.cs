@@ -1,9 +1,7 @@
 ﻿using FlightSimulator.Model;
-using FlightSimulator.Model.Interface;
-using FlightSimulator.Views;
+using FlightSimulator.ViewModels.Windows;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,21 +14,25 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-/** FLIGHT SIMULATOR PROJECT
- *  By : Racheli Copperman 315597575
- *       Shani Yael Dagan  307894899
- * **/ 
-namespace FlightSimulator
+namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml 
-    /// </summary>
-    public partial class MainWindow : Window
+    /// Interaction logic for MySettings.xaml
+    /// </summary> .
+    public partial class Settings : Window
     {
-        public MainWindow()
+        private SettingsWindowViewModel vm;
+
+        public Settings()
         {
             InitializeComponent();
+            vm = new SettingsWindowViewModel(new ApplicationSettingsModel());
+            DataContext = vm;
         }
 
+        private void BtnOK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

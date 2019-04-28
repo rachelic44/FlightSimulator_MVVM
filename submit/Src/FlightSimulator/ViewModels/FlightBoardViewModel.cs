@@ -80,7 +80,7 @@ namespace FlightSimulator.ViewModels
         private void DisConnection()
         {
             flightBoardModel.CloseConnections();
-           // NotifyPropertyChanged("Closing");
+            //NotifyPropertyChanged("Closing");
         }
        
     }

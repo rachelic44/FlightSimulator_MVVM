@@ -1,9 +1,7 @@
 ﻿using FlightSimulator.Model;
-using FlightSimulator.Model.Interface;
-using FlightSimulator.Views;
+using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,23 +12,22 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/** FLIGHT SIMULATOR PROJECT
- *  By : Racheli Copperman 315597575
- *       Shani Yael Dagan  307894899
- * **/ 
-namespace FlightSimulator
+namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml 
+    /// Interaction logic for AutoPilot.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AutoPilot : UserControl
     {
-        public MainWindow()
+        private AutoPilotViewModel vm;
+        public AutoPilot()
         {
             InitializeComponent();
+            vm = new AutoPilotViewModel(new AutoPilotModel());
+            DataContext = vm;
         }
-
     }
 }

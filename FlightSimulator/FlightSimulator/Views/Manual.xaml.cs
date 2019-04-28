@@ -1,9 +1,7 @@
 ﻿using FlightSimulator.Model;
-using FlightSimulator.Model.Interface;
-using FlightSimulator.Views;
+using FlightSimulator.ViewModels;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,23 +12,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-/** FLIGHT SIMULATOR PROJECT
- *  By : Racheli Copperman 315597575
- *       Shani Yael Dagan  307894899
- * **/ 
-namespace FlightSimulator
+namespace FlightSimulator.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml 
+    /// Interaction logic for JoysticNew.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Manual : UserControl
     {
-        public MainWindow()
+        private ManualViewModel vm;
+        public Manual()
         {
+            this.vm = new ManualViewModel(new ManualModel());
             InitializeComponent();
+            DataContext = vm;
+
         }
 
+        private void Joystick_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
