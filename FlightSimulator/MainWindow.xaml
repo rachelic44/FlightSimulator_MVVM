@@ -33,7 +33,7 @@
                 <TabItem Header="Manual">
                     <Views:Manual/>
                 </TabItem>
-                <TabItem Header="Auto Pilot">
+                <TabItem Header = "Auto Pilot">
                     <Views:AutoPilot/>
                 </TabItem>
             </TabControl>
