@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FlightSimulator"
         xmlns:Views="clr-namespace:FlightSimulator.Views"
         mc:Ignorable="d" 
-        Title="FlightSimulator" Height="590.333" Width="1070" FontWeight="Bold" >
+        Title="FlightSimulator" Height="590.333" Width="1070" FontWeight="Bold" ResizeMode="NoResize" >
     <Window.Resources>
         <Style x:Key="connect and settings">
             <Setter Property="Button.Background" Value="PapayaWhip"/>

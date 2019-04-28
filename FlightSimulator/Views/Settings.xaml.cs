@@ -29,5 +29,10 @@ namespace FlightSimulator.Views
             vm = new SettingsWindowViewModel(new ApplicationSettingsModel());
             DataContext = vm;
         }
+
+        private void BtnOK_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

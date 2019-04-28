@@ -12,6 +12,7 @@
         <WrapPanel DockPanel.Dock="Top" HorizontalAlignment="Center" >
             <Button x:Name="Connect"  Content="Connect" Margin="15 15 15 15" Padding="10 5 10 5" FontSize="20" Background="DarkOrange" Command="{Binding ConnectCommand}"/>
             <Button x:Name="Settings" Content="Settings" Margin="15 15 15 15" Padding="10 5 10 5" FontSize="20" Background="DarkOrange" Command="{Binding OpenSettings}"/>
+            <Button x:Name="Disconnect" Content="Disconnect" Margin="15 15 15 15" Padding="10 5 10 5" FontSize="20" Background="DarkOrange" Command="{Binding }" />
         </WrapPanel>
         <Grid>
             <Grid.Resources>
@@ -30,13 +31,25 @@
                 <ColumnDefinition Width="9*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="80*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="88*"/>
                 <RowDefinition Height="27.263"/>
                 <RowDefinition Height="7.404"/>
             </Grid.RowDefinitions>
-            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,160,315,160" Height="27" Width="35">Lon</TextBlock>
-            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Grid.ColumnSpan="2"/>
-            <TextBlock Grid.Row="1" Style="{StaticResource LabelStyle}" HorizontalAlignment="Center" Grid.Column="2" Margin="19,4,403,3" Grid.RowSpan="2" Width="28">Lat</TextBlock>
+            <d3:ChartPlotter Grid.Row="0" Grid.Column="1" LegendVisible="False" Name="plotter" Grid.ColumnSpan="2" Margin="37,0,-10,1.667" Grid.RowSpan="3"/>
+            <TextBlock Style="{StaticResource LabelStyle}" LayoutTransform="{StaticResource rotate}" VerticalAlignment="Center" Margin="-139,221,12,-339.667" Height="126" Width="127" RenderTransformOrigin="1.044,-1.664" Grid.Row="4">
+                <TextBlock.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </TextBlock.RenderTransform><Run Text="Lon"/></TextBlock>
+            <TextBlock Grid.Row="3" Style="{StaticResource LabelStyle}" HorizontalAlignment="Right" Grid.Column="2" Margin="0,0.333,206,-0.667" Width="62" Grid.RowSpan="2"><Run Text="Lat"/>
+            </TextBlock>
+
         </Grid>
     </DockPanel>
 </UserControl>
