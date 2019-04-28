@@ -30,5 +30,10 @@ namespace FlightSimulator.Views
             DataContext = vm;
 
         }
+
+        private void Joystick_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

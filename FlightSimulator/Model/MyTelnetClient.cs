@@ -72,7 +72,7 @@ namespace FlightSimulator.Model
                         }
                     }
                 }
-                client.Close();
+                disconnect();
             });
             thread.Start();
         }
@@ -97,6 +97,7 @@ namespace FlightSimulator.Model
         public void disconnect()
         {
             client.Close();
+            Console.WriteLine("client close");
         }
     }
 
